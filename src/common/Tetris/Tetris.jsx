@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Tetris.css'
+import { pieceMovement } from '../../helpers/Tetris';
 
 export const Tetris = () => {
 
@@ -17,21 +18,50 @@ export const Tetris = () => {
     ["_","_","_","_","_","_","_","_","_","_"],
   ]);
 
+  //aqui guardamos el estilo css de la pieza
   const [piece, setPiece] = useState("");
 
+  //
+  const [movement, setMovement] = useState(
+    {
+      direction: "",
+      keyPressed: false
+    }
+    );
+  
+  //detectamos la tecla y la guardamos en movement
+  addEventListener("keydown", (event) => {setMovement({direction : event.key, keyPressed: true})});  
+  
+  //cada vez que el tablero cambia lo pintamos de nuevo
   useEffect(() => {
-    //recorremos el tablero
     for(let i = 0 ; i < board.length ; i++){
       for(let j = 0 ; j < board[i].length ; j++){
-        //si algun pixel no es "_" significa que es una parte de una pieza,
         if(board[i][j] !== "_"){
           setPiece("colDesign " + board[i][j]);
-          let setPixel = document.getElementById(`${[i] + [j]}`)
         }
       };
-    };
-    console.log("fin");
-  });
+    };    
+    // reseteamos el movimiento
+    if(movement.keyPressed){
+      setMovement(
+        {
+          direction: "",
+          keyPressed: false
+        }
+        )
+      }
+    }, [board]);
+
+  //Cuando hay un cambio en movimiento lanzamos la funcion de mover pieza
+  useEffect(() => {
+    if(movement.keyPressed === true){
+      let data = pieceMovement(movement.direction, board);
+      setBoard(data);
+    }else {
+      setBoard(board)
+    };  
+  }, [movement]);
+
   
   return (
     <div className='tetrisDesign'>
