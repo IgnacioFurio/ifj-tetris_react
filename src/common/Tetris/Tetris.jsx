@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Tetris.css'
-import { pieceMovement } from '../../helpers/Tetris';
+import { pieceMovement, printBoard } from '../../helpers/Tetris';
 
 export const Tetris = () => {
 
@@ -20,52 +20,34 @@ export const Tetris = () => {
 
   //aqui guardamos el estilo css de la pieza
   const [piece, setPiece] = useState("");
+  const [direction, setDirection] = useState("");
 
-  //
-  const [movement, setMovement] = useState(
-    {
-      direction: "",
-      keyPressed: false
-    }
-    );
-  
-  //detectamos la tecla y la guardamos en movement
-  addEventListener("keydown", (event) => {setMovement({direction : event.key, keyPressed: true})});  
-  
   //cada vez que el tablero cambia lo pintamos de nuevo
   useEffect(() => {
-    for(let i = 0 ; i < board.length ; i++){
-      for(let j = 0 ; j < board[i].length ; j++){
-        if(board[i][j] !== "_"){
-          setPiece("colDesign " + board[i][j]);
-        }
-      };
-    };    
-    // reseteamos el movimiento
-    if(movement.keyPressed){
-      setMovement(
-        {
-          direction: "",
-          keyPressed: false
-        }
-        )
-      }
-    }, [board]);
-
-  //Cuando hay un cambio en movimiento lanzamos la funcion de mover pieza
+    let printPiece = printBoard(board);
+    setPiece("colDesign " + printPiece);
+    if(direction !== ""){setDirection("")};
+  }, [board]);
+   // reseteamos direccion
   useEffect(() => {
-    if(movement.keyPressed === true){
-      let data = pieceMovement(movement.direction, board);
-      setBoard(data);
-    }else {
-      setBoard(board)
-    };  
-  }, [movement]);
+    if(direction !== ""){
+      setBoard(pieceMovement(direction, board))
+    };
+  }, [direction]);
 
+  // detectamos la tecla apretada
+  useEffect(() => {
+    document.addEventListener("keydown", detectKeyDown, true);
+  }, []);
+  // guardamos la tecla apretada en la variable direction
+  const detectKeyDown = (e) => {
+    setDirection(e.key)
+  };
   
+
   return (
     <div className='tetrisDesign'>
-      <div className='boardDesign'>
+      <div className='boardDesign' onKeyDown={(e) => detectKeyDown(e)}>
         <div className='rowDesign'>
           {board[0][0] === "_" ? <div className='colDesign'></div> : <div id='00' className={piece}></div>}
           {board[0][1] === "_" ? <div className='colDesign'></div> : <div id='00' className={piece}></div>}
