@@ -61,13 +61,8 @@ export const pieceMovement = (direction, board, rotationState) => {
                         break
 
                     case "ArrowUp":
-                        console.log("ArrowUp");
-                        console.log("rotation state = " + rotationState);
                         newRowIndex = i + rotation[rotationState][rotationIndex][0];
-                        console.log("row index = " + newRowIndex);
                         newColIndex = j + rotation[rotationState][rotationIndex][1];
-                        console.log("col index = " + newColIndex);
-                        console.log("rotation index = " + rotationIndex);
                         
                         if(rotationIndex < 3){
                             rotationIndex++
