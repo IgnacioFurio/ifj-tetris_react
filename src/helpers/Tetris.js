@@ -78,7 +78,8 @@ export const pieceMovement = (direction, board, rotationState) => {
             };
             // y esta dentro del tablero
             if(newRowIndex > 9 ||  newColIndex > 9 || newColIndex < 0){
-                return data = {newBoard: board, rotationState: rotationState - 1};
+                if(direction === "ArrowUp"){return data = {newBoard: board, rotationState: rotationState - 1}};
+                return data = {newBoard: board, rotationState: rotationState};
             } else {
                 // asi que la movemos al nuevo tablero
                 newBoard[newRowIndex][newColIndex] = board[i][j]
