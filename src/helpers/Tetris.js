@@ -1,12 +1,5 @@
-import { tetrisPieces } from "./TetrisPieces";
-export const printBoard = (board) => {
-    for(let i = 0 ; i < board.length ; i++){
-        for(let j = 0 ; j < board[i].length ; j++){
-            if(board[i][j] !== "_"){
-                return board[i][j];
-            }
-        };
-    };
+export const pieceFinder = (board) => {
+    if(board[0][3] !== "_"){return board[0][3]}
 };
 
 export const pieceMovement = (direction, board, rotationState) => {
@@ -89,5 +82,15 @@ export const pieceMovement = (direction, board, rotationState) => {
     };
 
     return data = {newBoard: newBoard, rotationState: rotationState};
+};
+
+export const injectPiece = (board, piece) => {
+    //buscaremos en el tablero las primeras 3 filas
+    for(let i = 0 ; i < 3 ; i++){
+        //y las 3 columnas de en medio
+        for(let j = 3 ; j < 5 ; j ++){
+            board[i][j] = piece[i][j - 3]
+        };
+    };
 };
 
