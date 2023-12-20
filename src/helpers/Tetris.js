@@ -1,4 +1,4 @@
-import { tetrisPieces } from "./TetrisPieces";
+import { pieceRotations, tetrisPieces } from "./TetrisPieces";
 
 export const pieceSelector = () => {
     switch(Math.floor(Math.random() * 6)) {
@@ -58,8 +58,9 @@ export const injectPiece = (board, piece) => {
     return newBoard;
 };
 
-export const pieceMovement = (direction, board, rotationState) => {
+export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
     let data
+
     let newBoard = [
         ["_","_","_","_","_","_","_","_","_","_"],
         ["_","_","_","_","_","_","_","_","_","_"],
@@ -74,12 +75,31 @@ export const pieceMovement = (direction, board, rotationState) => {
     ];
     
     let rotationIndex = 0
-    let rotation =[
-        [[0 , 0],[-1 , 1],[-2 , 2],[-1 , -1]],
-        [[0 , 1],[1 , 0],[2 , -1],[-1 , 0]],
-        [[0 , 2],[1 , 1],[0 , 0],[-1 , -1]],
-        [[0 , -2],[0 , 0],[1 , -1],[1 , -1]],
-    ];
+    let rotation = [];
+    //searching the rotation to apply base on the piece
+    switch (pieceDesign) {
+        case "colDesign JDesign":
+                rotation = pieceRotations.pieceJRotations[0];
+            break;
+        case "colDesign LDesign":
+                rotation = pieceRotations.pieceLRotations[0];
+            break;
+        case "colDesign ODesign":
+                rotation = pieceRotations.pieceORotations[0];
+            break;
+        case "colDesign TDesign":
+                rotation = pieceRotations.pieceTRotations[0];
+            break;
+        case "colDesign ZDesign":
+                rotation = pieceRotations.pieceZRotations[0];
+            break;
+        case "colDesign SDesign":
+                rotation = pieceRotations.pieceSRotations[0];
+            break;
+    
+        default:
+            break;
+    }
 
     //resetter for rotationState
     if(direction === "ArrowUp" && rotationState < 3){
@@ -114,9 +134,9 @@ export const pieceMovement = (direction, board, rotationState) => {
                         newRowIndex = i + rotation[rotationState][rotationIndex][0];
                         newColIndex = j + rotation[rotationState][rotationIndex][1];
                         
-                        if(rotationIndex < 3){
+                        if(rotationIndex < rotation[0].length){
                             rotationIndex++
-                        } else if (rotationIndex === 3){
+                        } else if (rotationIndex === rotation[0].length){
                             rotationIndex = 0
                         }
 
