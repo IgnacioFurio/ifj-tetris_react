@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Tetris.css'
 
-import { pieceMovement, pieceFinder, injectPiece, pieceSelector, newPiece } from '../../helpers/Tetris';
-import { tetrisPieces } from '../../helpers/TetrisPieces';
+import { pieceMovement, newPiece } from '../../helpers/Tetris';
 
 import { Board } from '../../common/Board/Board';
 
@@ -40,7 +39,7 @@ export const Tetris = () => {
    // reset the Board and rotationState to allow hte player to repeat the action
   useEffect(() => {
     if(direction !== ""){
-      let newData = pieceMovement(direction, board, rotationState);
+      let newData = pieceMovement(direction, board, rotationState, pieceDesign);
 
       setBoard(newData.newBoard);
       setRotationState(newData.rotationState);

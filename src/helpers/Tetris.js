@@ -1,4 +1,4 @@
-import { tetrisPieces } from "./TetrisPieces";
+import { pieceRotations, tetrisPieces } from "./TetrisPieces";
 
 export const pieceSelector = () => {
     switch(Math.floor(Math.random() * 6)) {
@@ -58,8 +58,9 @@ export const injectPiece = (board, piece) => {
     return newBoard;
 };
 
-export const pieceMovement = (direction, board, rotationState) => {
+export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
     let data
+    console.log(pieceDesign);
     let newBoard = [
         ["_","_","_","_","_","_","_","_","_","_"],
         ["_","_","_","_","_","_","_","_","_","_"],
@@ -74,12 +75,9 @@ export const pieceMovement = (direction, board, rotationState) => {
     ];
     
     let rotationIndex = 0
-    let rotation =[
-        [[0 , 0],[-1 , 1],[-2 , 2],[-1 , -1]],
-        [[0 , 1],[1 , 0],[2 , -1],[-1 , 0]],
-        [[0 , 2],[1 , 1],[0 , 0],[-1 , -1]],
-        [[0 , -2],[0 , 0],[1 , -1],[1 , -1]],
-    ];
+    
+    let rotation = pieceRotations.pieceTRotations[0]
+    console.log(rotation[0].length);
 
     //resetter for rotationState
     if(direction === "ArrowUp" && rotationState < 3){
@@ -114,9 +112,9 @@ export const pieceMovement = (direction, board, rotationState) => {
                         newRowIndex = i + rotation[rotationState][rotationIndex][0];
                         newColIndex = j + rotation[rotationState][rotationIndex][1];
                         
-                        if(rotationIndex < 3){
+                        if(rotationIndex < rotation[0].length){
                             rotationIndex++
-                        } else if (rotationIndex === 3){
+                        } else if (rotationIndex === rotation[0].length){
                             rotationIndex = 0
                         }
 
