@@ -1,12 +1,45 @@
 import { tetrisPieces } from "./TetrisPieces";
-export const printBoard = (board) => {
-    for(let i = 0 ; i < board.length ; i++){
-        for(let j = 0 ; j < board[i].length ; j++){
-            if(board[i][j] !== "_"){
-                return board[i][j];
-            }
+
+export const pieceSelector = () => {
+    switch(Math.floor(Math.random() * 6)) {
+        case 0:
+            return tetrisPieces.pieceJ
+            break;
+        case 1:
+            return tetrisPieces.pieceL
+            break;
+        case 2:
+            return tetrisPieces.pieceO
+            break;
+        case 3:
+            return tetrisPieces.pieceS
+            break;
+        case 4:
+            return tetrisPieces.pieceT
+            break;
+        case 5:
+            return tetrisPieces.pieceZ
+            break;
+        default:
+            console.log("404: Piece not found");
+    };
+    
+};
+
+export const pieceFinder = (board) => {
+    if(board[0][3] !== "_"){return board[0][3]}
+};
+export const injectPiece = (board, piece) => {
+    let newBoard = board;
+    //we search the board from collumn 3 to 5 and rows 0 to 2
+    for(let i = 0 ; i < 3 ; i++){
+        for(let j = 3 ; j < 6 ; j ++){
+            //setting the piece in the middle of the board
+            newBoard[i][j] = piece[i][j - 3];
         };
     };
+
+    return newBoard;
 };
 
 export const pieceMovement = (direction, board, rotationState) => {
@@ -90,4 +123,6 @@ export const pieceMovement = (direction, board, rotationState) => {
 
     return data = {newBoard: newBoard, rotationState: rotationState};
 };
+
+
 

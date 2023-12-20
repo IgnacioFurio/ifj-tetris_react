@@ -16,7 +16,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[0][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[0][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[0][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[0][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[1][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -28,7 +27,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[1][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[1][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[1][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[1][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[2][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -40,7 +38,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[2][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[2][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[2][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[2][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[3][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -52,7 +49,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[3][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[3][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[3][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[3][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[4][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -64,7 +60,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[4][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[4][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[4][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[4][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[5][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -76,7 +71,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[5][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[5][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[5][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[5][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[6][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -88,7 +82,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[6][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[6][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[6][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[6][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[7][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -100,7 +93,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[7][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[7][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[7][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[7][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[8][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -112,7 +104,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[8][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[8][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[8][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[8][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
             <div className='rowDesign'>
                 {board[9][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
@@ -124,7 +115,6 @@ export const Board = ({board, piece, onKeyDown}) => {
                 {board[9][6] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[9][7] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
                 {board[9][8] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
-                {board[9][9] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
             </div>
         </div>
         </div>
