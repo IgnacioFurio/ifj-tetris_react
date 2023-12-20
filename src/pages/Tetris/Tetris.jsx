@@ -66,8 +66,28 @@ export const Tetris = () => {
   const detectKeyDown = (e) => {
     setDirection(e.key);
   };
-    
+  
+  //reset everything
+  const newGame = (e) => {
+    setBoard([
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+      ["_","_","_","_","_","_","_","_","_"],
+    ]);
+
+    setInsertPiece(true);
+    setPieceDesign("")
+    setDirection("");
+    setRotationState(0)
+  }
   return (
-    <Board board={board} piece={pieceDesign} onKeydown={(e) => detectKeyDown(e)}/>
+    <Board board={board} piece={pieceDesign} onKeydown={(e) => detectKeyDown(e)} button={(e) => newGame(e)}/>
   );
 };
