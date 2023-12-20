@@ -1,4 +1,4 @@
-#<h1 align="center" style='color:red'><b>Datapolo</b></h1>
+#<h1 align="center" style='color:red'><b>Tetris + React</b></h1>
 
 ---
 
