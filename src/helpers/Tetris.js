@@ -60,7 +60,7 @@ export const injectPiece = (board, piece) => {
 
 export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
     let data
-    console.log(pieceDesign);
+
     let newBoard = [
         ["_","_","_","_","_","_","_","_","_","_"],
         ["_","_","_","_","_","_","_","_","_","_"],
@@ -75,8 +75,32 @@ export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
     ];
     
     let rotationIndex = 0
+    let rotation = [];
+    //hardcoding the rotation piece, need to write a function that detect the piece so it's rotation can be applied
+    switch (pieceDesign) {
+        case "colDesign JDesign":
+                rotation = pieceRotations.pieceJRotations[0];
+            break;
+        case "colDesign LDesign":
+                rotation = pieceRotations.pieceLRotations[0];
+            break;
+        case "colDesign ODesign":
+                rotation = pieceRotations.pieceORotations[0];
+            break;
+        case "colDesign TDesign":
+                rotation = pieceRotations.pieceTRotations[0];
+            break;
+        case "colDesign ZDesign":
+                rotation = pieceRotations.pieceZRotations[0];
+            break;
+        case "colDesign SDesign":
+                rotation = pieceRotations.pieceSRotations[0];
+            break;
     
-    let rotation = pieceRotations.pieceZRotations[0]
+        default:
+            break;
+    }
+    console.log(rotation);
 
     //resetter for rotationState
     if(direction === "ArrowUp" && rotationState < 3){
