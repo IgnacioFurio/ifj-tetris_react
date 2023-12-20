@@ -70,5 +70,14 @@ const pieceS = [
     ["_","_","_"],
 ];
 
+const pieceSRotations = [
+    [
+        [[0 , 2],[-1 , 1],[0 , -1],[-1 , 0]],
+        [[0 , -1],[2 , -1],[0 , 0],[0 , 0]],
+        [[0 , 1],[0 , 0],[0 , 0],[-2 , 1]],
+        [[0 , -1],[2 , -1],[0 , 0],[0 , 0]],
+    ]
+];
+
 export const tetrisPieces = {pieceL, pieceJ, pieceO, pieceT, pieceZ, pieceS}
-export const pieceRotations = {pieceLRotations, pieceJRotations, pieceO, pieceTRotations, pieceZ, pieceS}
+export const pieceRotations = {pieceLRotations, pieceJRotations, pieceO, pieceTRotations, pieceZ, pieceSRotations}

@@ -76,8 +76,7 @@ export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
     
     let rotationIndex = 0
     
-    let rotation = pieceRotations.pieceTRotations[0]
-    console.log(rotation[0].length);
+    let rotation = pieceRotations.pieceSRotations[0]
 
     //resetter for rotationState
     if(direction === "ArrowUp" && rotationState < 3){
@@ -110,6 +109,8 @@ export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
 
                     case "ArrowUp":
                         newRowIndex = i + rotation[rotationState][rotationIndex][0];
+    console.log(rotation[rotationState][rotationIndex]);
+
                         newColIndex = j + rotation[rotationState][rotationIndex][1];
                         
                         if(rotationIndex < rotation[0].length){
