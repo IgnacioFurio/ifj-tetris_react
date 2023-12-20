@@ -76,7 +76,7 @@ export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
     
     let rotationIndex = 0
     let rotation = [];
-    //hardcoding the rotation piece, need to write a function that detect the piece so it's rotation can be applied
+    //searching the rotation to apply base on the piece
     switch (pieceDesign) {
         case "colDesign JDesign":
                 rotation = pieceRotations.pieceJRotations[0];
@@ -100,7 +100,6 @@ export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
         default:
             break;
     }
-    console.log(rotation);
 
     //resetter for rotationState
     if(direction === "ArrowUp" && rotationState < 3){
@@ -133,8 +132,6 @@ export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
 
                     case "ArrowUp":
                         newRowIndex = i + rotation[rotationState][rotationIndex][0];
-    console.log(rotation[rotationState][rotationIndex]);
-
                         newColIndex = j + rotation[rotationState][rotationIndex][1];
                         
                         if(rotationIndex < rotation[0].length){
