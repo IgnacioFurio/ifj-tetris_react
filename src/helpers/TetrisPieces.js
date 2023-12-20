@@ -5,7 +5,7 @@ const pieceL = [
 ];
 
 const pieceJ = [
-    ["JDesign","LDesign","LDesign"],
+    ["JDesign","JDesign","JDesign"],
     ["_","_","JDesign"],
     ["_","_","_"],
 ];
