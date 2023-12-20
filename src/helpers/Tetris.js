@@ -76,7 +76,7 @@ export const pieceMovement = (direction, board, rotationState, pieceDesign) => {
     
     let rotationIndex = 0
     
-    let rotation = pieceRotations.pieceJRotations[0]
+    let rotation = pieceRotations.pieceZRotations[0]
 
     //resetter for rotationState
     if(direction === "ArrowUp" && rotationState < 3){
