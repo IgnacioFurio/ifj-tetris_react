@@ -20,6 +20,16 @@
     background-color: aqua;
 }
 
+.button{
+    margin: 5px;
+    background-color: blue;
+
+    transition: 0.5s;
+}
+.button:hover{
+    background-color: rgb(71, 71, 190);
+}
+
 .JDesign{
     background-color: blue;
 }

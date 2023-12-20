@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Board.css"
 
-export const Board = ({board, piece, onKeyDown}) => {
+export const Board = ({board, piece, onKeyDown, button}) => {
 
     return (
         <div className='tetrisDesign'>
-        <div className='button'>hello</div>
+        <button className='button' onClick={button}>New Game</button>
         <div className='boardDesign' onKeyDown={onKeyDown}>
             <div className='rowDesign'>
                 {board[0][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
