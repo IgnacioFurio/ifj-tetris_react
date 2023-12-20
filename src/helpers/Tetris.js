@@ -26,9 +26,25 @@ export const pieceSelector = () => {
     
 };
 
-export const pieceFinder = (board) => {
-    if(board[0][3] !== "_"){return board[0][3]}
+export const pieceFinder = (newPiece) => {
+    let pieceStyle = newPiece[0][0][1]
+    if(pieceStyle !== "_"){return pieceStyle};
 };
+
+export const newPiece = (board) => {
+    let newPiece = [];
+    let newBoard = [];
+    let pieceStyle = ""
+
+    newPiece.push(pieceSelector());    
+    newBoard = injectPiece(board, newPiece[0]);
+    pieceStyle = pieceFinder(newPiece);
+
+    let data = {newBoard: newBoard, pieceStyle: pieceStyle};
+
+    return data;
+};
+
 export const injectPiece = (board, piece) => {
     let newBoard = board;
     //we search the board from collumn 3 to 5 and rows 0 to 2
