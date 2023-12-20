@@ -59,13 +59,13 @@ export const pieceMovement = (direction, board, rotationState) => {
     
     let rotationIndex = 0
     let rotation =[
-        [[0 , 0],[-1 , 1],[-2 , 2],[-1 , -1]], //comprobar la ultima rotacion, esta es la cero pero no tenemos acceso
+        [[0 , 0],[-1 , 1],[-2 , 2],[-1 , -1]],
         [[0 , 1],[1 , 0],[2 , -1],[-1 , 0]],
         [[0 , 2],[1 , 1],[0 , 0],[-1 , -1]],
         [[0 , -2],[0 , 0],[1 , -1],[1 , -1]],
     ];
 
-    //probando filtros para la rotacion
+    //resetter for rotationState
     if(direction === "ArrowUp" && rotationState < 3){
         rotationState++
     } else if (direction === "ArrowUp" && rotationState === 3){
@@ -76,7 +76,7 @@ export const pieceMovement = (direction, board, rotationState) => {
         for(let j = 0 ; j < board[i].length ; j++){
             let newRowIndex = 0;
             let newColIndex = 0;
-            //si algun pixel no es "_" significa que es una parte de una pieza,
+            //loocking for a piece int he board
             if(board[i][j] !== "_"){
                 switch(direction) {
                     case "ArrowDown":
@@ -110,12 +110,11 @@ export const pieceMovement = (direction, board, rotationState) => {
                         return data = {newBoard: board, rotationState: rotationState}
                 };
             };
-            // y esta dentro del tablero
-            if(newRowIndex > 9 ||  newColIndex > 9 || newColIndex < 0){
+            // checking if it's fitting inside the board
+            if(newRowIndex > 9 ||  newColIndex > 8 || newColIndex < 0){
                 if(direction === "ArrowUp"){return data = {newBoard: board, rotationState: rotationState - 1}};
                 return data = {newBoard: board, rotationState: rotationState};
             } else {
-                // asi que la movemos al nuevo tablero
                 newBoard[newRowIndex][newColIndex] = board[i][j]
             };
         };
