@@ -5,6 +5,7 @@ export const Board = ({board, piece, onKeyDown}) => {
 
     return (
         <div className='tetrisDesign'>
+        <div className='button'>hello</div>
         <div className='boardDesign' onKeyDown={onKeyDown}>
             <div className='rowDesign'>
                 {board[0][0] === "_" ? <div className='colDesign'></div> : <div className={piece}></div>}
