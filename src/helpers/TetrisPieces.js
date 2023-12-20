@@ -34,6 +34,15 @@ const pieceO = [
     ["_","_","_"],
 ];
 
+const pieceORotations = [
+    [
+        [[0 , 0],[0 , 0],[0 , 0],[0 , 0]],
+        [[0 , 0],[0 , 0],[0 , 0],[0 , 0]],
+        [[0 , 0],[0 , 0],[0 , 0],[0 , 0]],
+        [[0 , 0],[0 , 0],[0 , 0],[0 , 0]],
+    ]
+];
+
 const pieceT = [
     ["TDesign","TDesign","TDesign"],
     ["_","TDesign","_"],
@@ -80,4 +89,4 @@ const pieceSRotations = [
 ];
 
 export const tetrisPieces = {pieceL, pieceJ, pieceO, pieceT, pieceZ, pieceS}
-export const pieceRotations = {pieceLRotations, pieceJRotations, pieceO, pieceTRotations, pieceZ, pieceSRotations}
+export const pieceRotations = {pieceLRotations, pieceJRotations, pieceORotations, pieceTRotations, pieceZ, pieceSRotations}
